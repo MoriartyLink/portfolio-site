@@ -2,6 +2,8 @@ import Image from 'next/image'
 import RepoCard from '../components/RepoCard'
 import { motion } from 'framer-motion'
 import NetworkGraph from '../components/NetworkGraphEnhanced'
+import NetworkGraphLite from '../components/NetworkGraphLite'
+import { useEffect, useRef } from 'react'
 
 export default function Home({ repos }) {
   return (
@@ -79,21 +81,11 @@ export default function Home({ repos }) {
           </div>
         </section>
 
-        {/* 3D Network Visualization Section */}
-        <section id="network" className="mb-12">
-          <motion.h2
-            initial={{ y: 8, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-2xl font-bold text-neon mb-4"
-          >
-            Network Visualization
-          </motion.h2>
-          <motion.p className="text-[#bfeff7] mb-4">
-            Interactive 3D isometric network graph with glowing nodes and connecting lines, showcasing relationships between elements.
-          </motion.p>
-          <NetworkGraph />
-        </section>
+        <section id="skills" className="mb-12 p-6 bg-[#071226]/70 rounded-2xl">
+  <h3 className="text-neon font-semibold mb-4">Skill Network</h3>
+  <p className="text-[#cfeff7] mb-4">My skills connected like a network – backend, frontend, infra, and embedded systems.</p>
+  <NetworkGraphLite />
+</section>
 
         {/* Timeline Section */}
         <section id="timeline" className="mb-12 p-6 bg-[#071226]/70 rounded-2xl">
