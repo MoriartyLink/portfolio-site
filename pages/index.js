@@ -32,10 +32,10 @@ export default function Home({ repos }) {
                 Min Thu Khaing
               </h1>
               <p className="text-neon mt-1 font-medium">
-                Full-Stack Developer • Embedded Systems • Cloud-native
+                Full-Stack Developer  
               </p>
               <p className="mt-2 text-sm text-[#b6eaf6] max-w-xl">
-                I build reliable backend services with Django, interactive frontends with React, and deploy with Docker & Kubernetes. I use Manjaro daily and enjoy hardware projects with Raspberry Pi.
+                I build reliable backend services with Django, interactive frontends with React, and deploy with Docker & Kubernetes. I use Manjaro daily.
               </p>
             </div>
           </div>
@@ -52,7 +52,7 @@ export default function Home({ repos }) {
         <section id="about" className="bg-[#071226]/80 backdrop-blur-md p-6 rounded-2xl shadow-neon mb-8">
           <motion.h2 initial={{ y: 8, opacity: 0 }} whileInView={{ y:0, opacity:1 }} transition={{ duration: 0.5 }} className="text-2xl font-bold text-neon">About</motion.h2>
           <motion.p initial={{ y: 10, opacity: 0 }} whileInView={{ y:0, opacity:1 }} transition={{ duration: 0.6 }} className="mt-3 text-[#cfeff7]">
-            I’m Min (Moriarty), a 4th-year Computer Science student at MIIT. I specialize in backend development with Django and Flask, frontend using React, and containerized deployments with Docker and Kubernetes. I also build embedded systems using Raspberry Pi & GrovePi. I enjoy clean code, efficient systems, and constant learning.
+            Hi , I’m Min Thu Khaing. You can also call me Moriarty.I'm 4th-year Computer Science student at MIIT. I specialize in backend development with Django and Flask, frontend using React, and containerized deployments with Docker and Kubernetes. I also build embedded systems using Raspberry Pi & GrovePi. I enjoy clean code, efficient systems, and constant learning.
           </motion.p>
           <motion.div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3" initial={{ opacity:0 }} whileInView={{ opacity:1 }} transition={{ delay:0.2 }}>
             <Tag>Python</Tag>
@@ -61,7 +61,6 @@ export default function Home({ repos }) {
             <Tag>Docker</Tag>
             <Tag>Kubernetes</Tag>
             <Tag>Linux (Manjaro)</Tag>
-            <Tag>Raspberry Pi</Tag>
             <Tag>Networking</Tag>
           </motion.div>
         </section>
