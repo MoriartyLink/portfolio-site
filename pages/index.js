@@ -31,7 +31,7 @@ export default function Home({ repos }) {
                 Min Thu Khaing
               </h1>
               <p className="text-neon mt-1 font-medium">
-                Full-Stack Developer • Embedded Systems • Cloud-native
+                Full-Stack Developer  • Cloud-native
               </p>
               <p className="mt-2 text-sm text-[#b6eaf6] max-w-xl">
                 I build backend services with Django, interactive frontends with React, and deploy with Docker & Kubernetes. I enjoy hardware projects with Raspberry Pi and continuous learning.
