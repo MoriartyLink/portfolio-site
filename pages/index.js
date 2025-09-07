@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import RepoCard from '../components/RepoCard'
 import { motion } from 'framer-motion'
+import NetworkGraph from '../components/NetworkGraphEnhanced'
 
 export default function Home({ repos }) {
   return (
@@ -31,20 +32,16 @@ export default function Home({ repos }) {
                 Min Thu Khaing
               </h1>
               <p className="text-neon mt-1 font-medium">
-                Full-Stack Developer  • Cloud-native
+                Full-Stack Developer • Embedded Systems • Cloud-native
               </p>
               <p className="mt-2 text-sm text-[#b6eaf6] max-w-xl">
-                I build backend services with Django, interactive frontends with React, and deploy with Docker & Kubernetes. I enjoy hardware projects with Raspberry Pi and continuous learning.
+                I build reliable backend services with Django, interactive frontends with React, and deploy with Docker & Kubernetes. I use Manjaro daily and enjoy hardware projects with Raspberry Pi.
               </p>
             </div>
           </div>
-          <nav className="mt-6 md:mt-0 flex gap-2">
-            <a href="#projects" className="px-4 py-2 border border-neon rounded-md text-sm hover:bg-neon hover:text-black transition">
-              Projects
-            </a>
-            <a href="#contact" className="px-4 py-2 border border-neon rounded-md text-sm hover:bg-neon hover:text-black transition">
-              Contact
-            </a>
+          <nav className="mt-6 md:mt-0">
+            <a className="px-4 py-2 border border-neon rounded-md text-sm mr-2 hover:bg-neon hover:text-black transition" href="#projects">Projects</a>
+            <a className="px-4 py-2 border border-neon rounded-md text-sm hover:bg-neon hover:text-black transition" href="#contact">Contact</a>
           </nav>
         </div>
       </header>
@@ -53,28 +50,11 @@ export default function Home({ repos }) {
 
         {/* About Section */}
         <section id="about" className="bg-[#071226]/80 backdrop-blur-md p-6 rounded-2xl shadow-neon mb-8">
-          <motion.h2
-            initial={{ y: 8, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-2xl font-bold text-neon"
-          >
-            About
-          </motion.h2>
-          <motion.p
-            initial={{ y: 10, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="mt-3 text-[#cfeff7]"
-          >
+          <motion.h2 initial={{ y: 8, opacity: 0 }} whileInView={{ y:0, opacity:1 }} transition={{ duration: 0.5 }} className="text-2xl font-bold text-neon">About</motion.h2>
+          <motion.p initial={{ y: 10, opacity: 0 }} whileInView={{ y:0, opacity:1 }} transition={{ duration: 0.6 }} className="mt-3 text-[#cfeff7]">
             I’m Min (Moriarty), a 4th-year Computer Science student at MIIT. I specialize in backend development with Django and Flask, frontend using React, and containerized deployments with Docker and Kubernetes. I also build embedded systems using Raspberry Pi & GrovePi. I enjoy clean code, efficient systems, and constant learning.
           </motion.p>
-          <motion.div
-            className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
+          <motion.div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3" initial={{ opacity:0 }} whileInView={{ opacity:1 }} transition={{ delay:0.2 }}>
             <Tag>Python</Tag>
             <Tag>Django</Tag>
             <Tag>React</Tag>
@@ -88,22 +68,32 @@ export default function Home({ repos }) {
 
         {/* Projects Section */}
         <section id="projects" className="mb-12">
+          <motion.h2 initial={{ y: 8, opacity: 0 }} whileInView={{ y:0, opacity:1 }} transition={{ duration: 0.5 }} className="text-2xl font-bold text-neon mb-4">Projects</motion.h2>
+          <motion.p className="text-[#bfeff7] mb-4">
+            Highlighted projects. Click a card to open the repo.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {repos.map(repo => (
+              <RepoCard key={repo.id} repo={repo} />
+            ))}
+          </div>
+        </section>
+
+        {/* 3D Network Visualization Section */}
+        <section id="network" className="mb-12">
           <motion.h2
             initial={{ y: 8, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
             className="text-2xl font-bold text-neon mb-4"
           >
-            Projects
+            Network Visualization
           </motion.h2>
           <motion.p className="text-[#bfeff7] mb-4">
-            All public GitHub repositories are listed automatically below. Click a card to open the repo.
+            Interactive 3D isometric network graph with glowing nodes and connecting lines, showcasing relationships between elements.
           </motion.p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {repos.map(repo => (
-              <RepoCard key={repo.id} repo={repo} />
-            ))}
-          </div>
+          <NetworkGraph />
         </section>
 
         {/* Timeline Section */}
@@ -112,65 +102,58 @@ export default function Home({ repos }) {
           <ul className="mt-3 space-y-4 text-[#cfeff7]">
             <li><strong>2021 – 2025</strong> — BSc (Hons) Computer Science, MIIT</li>
             <li><strong>2024</strong> — Coursera: IBM Full Stack specialization (ongoing)</li>
-            <li><strong>Present</strong> — Building full-stack & embedded projects, learning infrastructure and security.</li>
+            <li><strong>Present</strong> — Building full-stack & embedded projects, learning infra and security.</li>
           </ul>
         </section>
 
         {/* Contact Section */}
         <section id="contact" className="mb-24 p-6 rounded-2xl bg-[#071226]/60">
           <h3 className="text-neon font-semibold">Contact</h3>
-          <p className="text-[#bfeff7] mt-2">Email: <a href="mailto:moriartylink@gmail.com" className="underline">moriartylink@gmail.com</a></p>
+          <p className="text-[#bfeff7] mt-2">
+            Email: <a href="mailto:moriartylink@gmail.com" className="underline">moriartylink@gmail.com</a>
+          </p>
           <div className="flex gap-4 mt-4">
             <a className="px-4 py-2 border border-neon rounded-md hover:bg-neon hover:text-black transition" href="https://github.com/MoriartyLink" target="_blank">GitHub</a>
             <a className="px-4 py-2 border border-neon rounded-md hover:bg-neon hover:text-black transition" href="https://www.linkedin.com/in/min-thu-khaing-188249354/" target="_blank">LinkedIn</a>
           </div>
         </section>
-
       </main>
 
       <footer className="text-center py-8 text-[#94dff3]">
         © {new Date().getFullYear()} Min Thu Khaing — Moriarty
       </footer>
-
     </div>
   )
 }
 
 function Tag({ children }) {
   return (
-    <span className="inline-block py-1 px-3 rounded-full text-sm border border-neon/20 text-[#dffaff]">
-      {children}
-    </span>
+    <span className="inline-block py-1 px-3 rounded-full text-sm border border-neon/20 text-[#dffaff]">{children}</span>
   )
 }
 
-// Fetch GitHub repos with optional token
+// Fetch GitHub repos but show only selected best projects
 export async function getStaticProps() {
   const username = 'MoriartyLink'
-  const headers = {}
-
-  if (process.env.GITHUB_TOKEN) {
-    headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`
-  }
-
-  const res = await fetch(
-    `https://api.github.com/users/${username}/repos?per_page=100&type=owner&sort=updated`,
-    { headers }
-  )
+  const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&type=owner&sort=updated`)
   const data = await res.json()
 
-  const repos = (Array.isArray(data) ? data : []).map(r => ({
-    id: r.id,
-    name: r.name,
-    html_url: r.html_url,
-    description: r.description,
-    stargazers_count: r.stargazers_count,
-    language: r.language,
-    updated_at: r.updated_at
-  }))
+  const bestProjectNames = ["voting-project", "plantify", "portfolio-site", "uprising"]
+
+  const repos = (Array.isArray(data) ? data : [])
+    .filter(r => bestProjectNames.includes(r.name.toLowerCase()))
+    .map(r => ({
+      id: r.id,
+      name: r.name,
+      html_url: r.html_url,
+      description: r.description,
+      stargazers_count: r.stargazers_count,
+      language: r.language,
+      updated_at: r.updated_at
+    }))
 
   return {
     props: { repos },
-    revalidate: 3600 // revalidate every hour
+    revalidate: 3600
   }
 }
