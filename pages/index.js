@@ -119,7 +119,7 @@ export default function Home({ repos }) {
         {/* Contact Section */}
         <section id="contact" className="mb-24 p-6 rounded-2xl bg-[#071226]/60">
           <h3 className="text-neon font-semibold">Contact</h3>
-          <p className="text-[#bfeff7] mt-2">Email: <a href="mailto:you@example.com" className="underline">you@example.com</a></p>
+          <p className="text-[#bfeff7] mt-2">Email: <a href="mailto:moriartylink@gmail.com" className="underline">moriartylink@gmail.com</a></p>
           <div className="flex gap-4 mt-4">
             <a className="px-4 py-2 border border-neon rounded-md hover:bg-neon hover:text-black transition" href="https://github.com/MoriartyLink" target="_blank">GitHub</a>
             <a className="px-4 py-2 border border-neon rounded-md hover:bg-neon hover:text-black transition" href="https://www.linkedin.com/in/min-thu-khaing-188249354/" target="_blank">LinkedIn</a>
